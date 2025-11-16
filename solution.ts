@@ -29,3 +29,12 @@ class Person {
     return `'Name: ${this.name}, Age: ${this.age}'`
   }
 }
+
+type Items = {
+  title: string
+  rating: number
+}
+
+const filterByRating = (items: Items[]): Items[] => {
+  return items.filter((item) => item.rating >= 4)
+}
