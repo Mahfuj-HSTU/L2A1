@@ -38,3 +38,16 @@ type Items = {
 const filterByRating = (items: Items[]): Items[] => {
   return items.filter((item) => item.rating >= 4)
 }
+
+type User = {
+  id: number
+  name: string
+  email: string
+  isActive: boolean
+}
+
+const filterActiveUsers = (users: User[]): User[] => {
+  return users.filter(
+    (user) => typeof user.isActive === 'boolean' && user.isActive === true
+  )
+}
