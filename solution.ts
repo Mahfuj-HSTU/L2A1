@@ -66,3 +66,20 @@ const printBookDetails = (book: Book) => {
     }, Available: ${book.isAvailable ? 'Yes' : 'No'}`
   )
 }
+
+type ArrayType = string | number
+
+const getUniqueValues = <T extends ArrayType>(
+  value1: T[],
+  value2: T[]
+): T[] => {
+  const combined = [...value1, ...value2]
+  const uniqueArray: T[] = []
+
+  for (const item of combined) {
+    if (!uniqueArray.includes(item)) {
+      uniqueArray.push(item)
+    }
+  }
+  return uniqueArray
+}
