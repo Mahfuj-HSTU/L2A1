@@ -26,7 +26,7 @@ class Person {
     this.age = age
   }
   getDetails() {
-    return `'Name: ${this.name}, Age: ${this.age}'`
+    return `Name: ${this.name}, Age: ${this.age}`
   }
 }
 
@@ -49,5 +49,20 @@ type User = {
 const filterActiveUsers = (users: User[]): User[] => {
   return users.filter(
     (user) => typeof user.isActive === 'boolean' && user.isActive === true
+  )
+}
+
+interface Book {
+  title: string
+  author: string
+  publishedYear: number
+  isAvailable: boolean
+}
+
+const printBookDetails = (book: Book) => {
+  console.log(
+    `Title: ${book.title}, Author: ${book.author}, Published: ${
+      book.publishedYear
+    }, Available: ${book.isAvailable ? 'Yes' : 'No'}`
   )
 }
