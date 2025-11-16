@@ -83,3 +83,28 @@ const getUniqueValues = <T extends ArrayType>(
   }
   return uniqueArray
 }
+
+type Product = {
+  name: string
+  price: number
+  quantity: number
+  discount?: number
+}
+
+const calculateTotalPrice = (products: Product[]): number => {
+  if (products.length === 0) return 0
+
+  const totalPrice = products.reduce((total, product) => {
+    const basePrice = product.price * product.quantity
+
+    const discountAmount =
+      product.discount && product.discount >= 0 && product.discount <= 100
+        ? (basePrice * product.discount) / 100
+        : 0
+
+    const finalPrice = basePrice - discountAmount
+
+    return total + finalPrice
+  }, 0)
+  return totalPrice
+}
