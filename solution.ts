@@ -8,3 +8,12 @@ const formatValue = <T extends string | number | boolean>(value: T): T => {
   }
   return value
 }
+
+const getLength = (value: string | string[] | number[]): number => {
+  if (typeof value === 'string') {
+    return value.length
+  } else if (Array.isArray(value)) {
+    return value.length
+  }
+  return 0
+}
