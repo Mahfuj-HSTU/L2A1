@@ -26,7 +26,7 @@ class Person {
     this.age = age
   }
   getDetails() {
-    return `Name: ${this.name}, Age: ${this.age}`
+    return `'Name: ${this.name}, Age: ${this.age}'`
   }
 }
 
@@ -76,11 +76,22 @@ const getUniqueValues = <T extends ArrayType>(
   const combined = [...value1, ...value2]
   const uniqueArray: T[] = []
 
-  for (const item of combined) {
-    if (!uniqueArray.includes(item)) {
+  const exists = (arr: T[], item: T): boolean => {
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] === item) {
+        return true
+      }
+    }
+    return false
+  }
+
+  for (let i = 0; i < combined.length; i++) {
+    const item = combined[i]
+    if (!exists(uniqueArray, item)) {
       uniqueArray.push(item)
     }
   }
+
   return uniqueArray
 }
 
