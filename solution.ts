@@ -73,8 +73,16 @@ const getUniqueValues = <T extends ArrayType>(
   value1: T[],
   value2: T[]
 ): T[] => {
-  const combined = [...value1, ...value2]
+  const combined: T[] = []
   const uniqueArray: T[] = []
+
+  for (let i = 0; i < value1.length; i++) {
+    combined.push(value1[i])
+  }
+
+  for (let i = 0; i < value2.length; i++) {
+    combined.push(value2[i])
+  }
 
   const exists = (arr: T[], item: T): boolean => {
     for (let i = 0; i < arr.length; i++) {
